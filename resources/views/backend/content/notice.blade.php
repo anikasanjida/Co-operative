@@ -1,41 +1,30 @@
-@extends('AdminMain')
+@extends('main')
 @section('notice')
 
-
-<!-- Button trigger modal -->
+{{-- <!-- Button trigger modal -->
 <div class=" text-start">
     <a class="btn btn-info " data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Add notice
+        View notice
     </a>
-    </div>
+    </div> --}}
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-warning" id="exampleModalLabel">Add new member</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+       {{-- Table title --}}
 
-            <form method="post" action="{{route('notice.add')}}"class="container">
-            @csrf
+<div class="title text-center mb-3 bg-info text-dark">
+    <h3 class="font-weight-bolder p-1 m-5">Notice List</h3>
 
-            <div class="modal-body bg-info">
+ </div>
 
-                    <div class=" from-group">
-                      <label for="exampleInputEmail1">Enter notice here</label>
-                      <input type="text" class="form-control"name="news" placeholder="Enter notice">
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-warning">submit</button>
-                      </div>
-                  </form>
-                    </div>
-                  </div>
-                </div>
+     {{-- table --}}
+
+        @foreach ($new as $key=>$item )
+
+         <div>
+
+             <p><span>{{ $key+1 }}) </span>{{ $item->news_description }}</p>
+         </div>
+         @endforeach
 
 
 @endsection

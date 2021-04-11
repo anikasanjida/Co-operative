@@ -1,11 +1,11 @@
 
-@extends('AdminMain')
+@extends('UserMain')
 @section('content')
 <body>
     <div class="flex-container">
         <div class="flex-item">
             <h1 id="customer">
-                Welcome Admin !
+                Welcome User !
             </h1>
             <p id="customer" style="max-width:800px text-centered">
                 From here you can manage the system.

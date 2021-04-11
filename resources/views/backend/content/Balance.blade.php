@@ -1,4 +1,5 @@
-@extends('AdminMain')
+
+{{-- @extends('UserMain')
 @section('content')
 
 
@@ -20,6 +21,4 @@
 
 
 
-
-
-@endsection
+    @endsection --}}

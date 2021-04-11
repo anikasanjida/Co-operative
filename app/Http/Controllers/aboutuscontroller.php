@@ -11,6 +11,30 @@ class aboutuscontroller extends Controller
     }
 
     public function home(){
-        return view('backend.content.AdminHome');
+        return view('backend.content.AdminHome',);
     }
+    public function User(){
+
+        return view('backend.content.UserHome');
+
+    }
+
+    public function profile(){
+
+        return view('backend.content.profile');
+
+    }
+
+
+    // public function profile(){
+    //     $members= member::all();
+    //     return view('backend.content.UserHome', compact('members'));
+
+
+    // }
+
+    public function Mytransaction(){
+        return view('backend.content.My-transaction');
+    }
+
 }

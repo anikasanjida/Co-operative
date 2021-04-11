@@ -12,9 +12,15 @@ class contactcontroller extends Controller
     public function member(){
         return view('backend.content.member');
     }
+    public function Balance(){
+        return view('backend.content.Balance');
+    }
 
     public function transaction(){
         return view('backend.content.transaction');
+    }
+    public function loan(){
+        return view('backend.content.loan');
     }
 
 }

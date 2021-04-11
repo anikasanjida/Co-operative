@@ -14,21 +14,28 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('home') }}"></a>
                     </li>
                     <li class="nav-item nav-style ">
-                        <a class="nav-link" href={{ route('AdminHome') }}>Home</a>
-                    </li>
-                    <li class="nav-item nav-style">
-                        <a class="nav-link" href="{{ route('news') }}">News</a>
+                        <a class="nav-link" href={{ route('UserHome') }}>Home</a>
                     </li>
                     <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{ route('member') }}">Members</a>
+                        <a class="nav-link" href={{ route('profile') }}>Profile</a>
+                    </li>
+                    <li class="nav-item nav-style ">
+                        <a class="nav-link" href={{ route('My-transaction') }}>My Transaction</a>
                     </li>
 
-                    <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{ route('transaction') }}">Transaction</a>
+                    <li class="nav-item nav-style">
+                        <a class="nav-link" href="{{ route('Deposit-withdraw') }}">Deposite/Withdraw</a>
                     </li>
                     <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{ route('loan') }}">Loan module</a>
+                        <a class="nav-link" href="{{ route('Balance') }}">Balance</a>
                     </li>
+
+                    {{-- <li class="nav-item nav-style ">
+                        <a class="nav-link" href="{{ route('transaction') }}">Transaction Request</a>
+                    </li> --}}
+                    {{-- <li class="nav-item nav-style ">
+                        <a class="nav-link" href="{{ route('loan') }}">Transaction Status</a>
+                    </li> --}}
 
                 </ul>
 

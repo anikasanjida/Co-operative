@@ -18,7 +18,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <form method="post" action="{{route('member.add')}}"class="container">
+        {{-- from start --}}
+
+        <form method="post" action="{{route('member.add')}}" enctype="multipart/form-data" class="container">
         @csrf
 
         <div class="modal-body bg-info">
@@ -34,12 +36,12 @@
                 </div>
 
                <div class=" from-group">
-                  <label for="exampleInputEmail1">dob</label>
+                  <label for="exampleInputEmail1">date of birth</label>
                   <input type="date" class="form-control"name="dob" placeholder="Enter birathday date">
 
                 </div>
                 <div class=" from-group">
-                    <label for="exampleInputEmail1">Adress</label>
+                    <label for="exampleInputEmail1">Address</label>
                     <textarea type="address" class="form-control"name="address" placeholder="Enter Address here"></textarea>
 
                   </div>
@@ -56,11 +58,11 @@
 
                   <div class=" from-group">
                     <label for="exampleInputEmail1">Voter id</label>
-                    <input type="value" class="form-control"name="id" placeholder="Enter voter id">
+                    <input type="id" class="form-control"name="voter_id" placeholder="Enter voter id">
 
                   </div>
                   <div class=" from-group">
-                    <label for="phon_no">phn_no</label>
+                    <label for="phon_no">Phone_number</label>
                     <input type="tel" class="form-control" name="phon_no" placeholder="Enter phn_no">
                 </div>
                 <div class=" from-group">
@@ -80,6 +82,11 @@
 
                   </div>
 
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Upload Image</label>
+                    <input name="members_image" type="file" class="form-control">
+               </div>
+
         </div>
                 <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -92,26 +99,27 @@
 
   {{-- Table title --}}
 
-<div class="title text-center mb-3 bg-white text-dark">
+<div class="title text-center mb-3 bg-info text-dark">
    <h3 class="font-weight-bolder p-1 m-5">Member List</h3>
 
 </div>
 
 
     {{-- table --}}
-<table class="table">
-    <thead>
+<table class="table table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
+    <thead class= "table-dark">
       <tr>
-        <th scope="col">Enter first_Name</th>
-        <th scope="col">Enter last_Name</th>
-        <th scope="col">dob</th>
-        <th scope="col">Adress</th>
+        <th scope="col">first_Name</th>
+        <th scope="col">last_Name</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Address</th>
         <th scope="col">Gender</th>
         <th scope="col">Voter id</th>
         <th scope="col">phn_no</th>
         <th scope="col">Email Address</th>
         <th scope="col">Account no</th>
         <th scope="col">Branch Name</th>
+        <th scope="col">image</th>
       </tr>
     </thead>
     <tbody>
@@ -120,19 +128,27 @@
         <tr>
            <th scope="row">{{$data->first_name}}</th>
            <td>{{$data->last_name}}</td>
-           <td>{{$data->address}}</td>
            <td>{{$data->dob}}</td>
+           <td>{{$data->address}}</td>
            <td>{{$data->gender}}</td>
-           <td>{{$data->id}}</td>
+           <td>{{$data->voter_id}}</td>
            <td>{{$data->phon_no}}</td>
            <td>{{$data->email}}</td>
            <td>{{$data->account_no}}</td>
            <td>{{$data->branch}}</td>
+           <td>
+            <img style="width: 100px;" src="{{url('/files/member/'.$data->image)}}" alt="">
+        </td>
+
+        <td>
+            <a class="btn btn-success" href="">View</a>
+            <a class="btn btn-danger" href="{{route('member.delete',$data->id)}}">Delete</a>
+        </td>
 
         </tr>
 
         @endforeach
 
   </table>
-
+{{$members->links()}}
 @endsection

@@ -25,6 +25,7 @@ class CreateMembersTable extends Migration
             $table->string('email',);
             $table->string('account_no',);
             $table->string('branch',);
+            $table->text('image',)->nullable();
             $table->timestamps();
         });
     }

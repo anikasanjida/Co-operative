@@ -6,6 +6,9 @@ use App\Http\Controllers\gallerycontroller;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\noticecontroller;
 use App\Http\Controllers\contactcontroller;
+use App\Http\Controllers\LoanReqController;
+use App\Http\Controllers\LoanStatusController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\MemberListController;
 use App\Http\Controllers\ManageMemberController;
 
@@ -34,6 +37,10 @@ Route::get('/',[homecontroller::class,'home'])->name('home');
 
 Route::get('/admin/about',[aboutuscontroller::class,'about'])->name('about');
 Route::get('/adminreg/AdminHome',[aboutuscontroller::class,'home'])->name('AdminHome');
+Route::get('/User/UserHome',[aboutuscontroller::class,'User'])->name('UserHome');
+Route::get('/User/My-transaction',[aboutuscontroller::class,'Mytransaction'])->name('My-transaction');
+Route::get('/User/profile',[aboutuscontroller::class,'profile'])->name('profile');
+
 
 
 Route::get('/admin/gallery',[gallerycontroller::class,'gallery'])->name('gallery');
@@ -41,8 +48,11 @@ Route::get('/admin/gallery',[gallerycontroller::class,'gallery'])->name('gallery
 //notice section
 
 Route::get('/admin/notice',[noticecontroller::class,'notice'])->name('notice');
-Route::post('/adminreg/notice',[noticecontroller::class,'add'])->name('notice.add');
 
+Route::get('/adminreg/news',[NewsController::class,'news'])->name('news');
+Route::post('/adminreg/news',[NewsController::class,'news_body'])->name('news.add');
+
+Route::get('/User/Deposit-withdraw',[NewsController::class,'Depositwithdraw'])->name('Deposit-withdraw');
 
 //admin homepage
 
@@ -50,9 +60,18 @@ Route::get('/admin/contact',[contactcontroller::class,'contact'])->name('contact
 Route::get('/adminreg/member',[contactcontroller::class,'member'])->name('member');
 Route::get('/adminreg/transaction',[contactcontroller::class,'transaction'])->name('transaction');
 Route::get('/adminreg/memberlist',[MemberListController::class,'list'])->name('MemberList');
+Route::get('/adminreg/delete/{id}',[MemberListController::class,'deleteMember'])->name('member.delete');
 Route::get('/adminreg/ManageMember',[ManageMemberController::class,'list'])->name('ManageMember');
 
 
+Route::get('/adminreg/loan',[contactcontroller::class,'loan'])->name('loan');
+Route::get('/adminreg/LoanRequest',[LoanReqController::class,'LoanRequest'])->name('LoanRequest');
+Route::post('/adminreg/LoanRequest',[LoanReqController::class,'add'])->name('loan.add');
+Route::get('/adminreg/LoanStatus',[LoanStatusController::class,'LoanStatus'])->name('LoanStatus');
+
+
+
+Route::get('/User/Balance',[contactcontroller::class,'Balance'])->name('Balance');
 
 
 //Add Member
@@ -69,11 +88,13 @@ Route::post('/admin/login',[logincontroller::class,'adminlogin'])->name('adminlo
 
 
 
-
-// Route::get('/adminreg', function (){
-//     return view('AdminMain');
-// });;
+//admin panel
 
 Route::get('/Adminreg', function (){
     return view('AdminMain');
+});;
+
+//User Panel
+Route::get('/User', function (){
+    return view('UserMain');
 });;
