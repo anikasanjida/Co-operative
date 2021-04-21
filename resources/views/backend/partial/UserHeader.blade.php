@@ -29,6 +29,13 @@
                     <li class="nav-item nav-style ">
                         <a class="nav-link" href="{{ route('Balance') }}">Balance</a>
                     </li>
+                    <li class="nav-item nav-style ">
+                     @auth()
+                         <span style="color:rgb(236, 11, 11);">{{auth()->user()->name}}</span> <a href="{{route('userlogout')}}"> Logout</a>
+                     @else
+                        <a href="{{route('userlogin')}}">Login</a>
+                        @endauth
+                    </li>
 
                     {{-- <li class="nav-item nav-style ">
                         <a class="nav-link" href="{{ route('transaction') }}">Transaction Request</a>

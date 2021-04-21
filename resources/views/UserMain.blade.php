@@ -49,7 +49,7 @@
     <link href="../css/cover.css" rel="stylesheet">
   </head>
 
-  <body class="d-flex text-light bg-secondary">
+  <body class="d-flex text-dark bg-secondary">
 
 
     <div class="fluid-container d-flex w-100 mx-auto flex-column">

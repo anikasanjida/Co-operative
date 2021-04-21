@@ -26,13 +26,9 @@
         <div class="modal-body bg-info">
 
                 <div class=" from-group">
-                  <label for="exampleInputEmail1">Enter first_Name</label>
-                  <input type=" first_name" class="form-control"name="first_name" placeholder="Enter member first name">
+                  <label for="exampleInputEmail1">Enter Name</label>
+                  <input type="text" class="form-control"name="name" placeholder="Enter member name">
 
-                </div>
-                <div class="from-group ">
-                  <label for="exampleInputPassword1">Enter last_Name</label>
-                  <input type='last_name' class="form-control"name="last_name"placeholder="Enter member last name">
                 </div>
 
                <div class=" from-group">
@@ -42,7 +38,7 @@
                 </div>
                 <div class=" from-group">
                     <label for="exampleInputEmail1">Address</label>
-                    <textarea type="address" class="form-control"name="address" placeholder="Enter Address here"></textarea>
+                    <textarea type="text" class="form-control"name="address" placeholder="Enter Address here"></textarea>
 
                   </div>
                   <div class=" from-group">
@@ -58,7 +54,7 @@
 
                   <div class=" from-group">
                     <label for="exampleInputEmail1">Voter id</label>
-                    <input type="id" class="form-control"name="voter_id" placeholder="Enter voter id">
+                    <input type="number" class="form-control"name="voter_id" placeholder="Enter voter id">
 
                   </div>
                   <div class=" from-group">
@@ -73,7 +69,7 @@
 
                   <div class=" from-group">
                     <label for="exampleInputEmail1">Account no</label>
-                    <input type="value" class="form-control"name="account_no" placeholder="Enter Account number">
+                    <input type="number" class="form-control"name="account_no" placeholder="Enter Account number">
                   </div>
 
                   <div class=" from-group">
@@ -81,6 +77,10 @@
                     <input type="text" class="form-control"name="branch" placeholder="Enter Branch Name">
 
                   </div>
+                  <div class="from-group">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter your Password" required>
+                </div>
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Upload Image</label>
@@ -109,8 +109,7 @@
 <table class="table table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
     <thead class= "table-dark">
       <tr>
-        <th scope="col">first_Name</th>
-        <th scope="col">last_Name</th>
+        <th scope="col">Name</th>
         <th scope="col">Date of Birth</th>
         <th scope="col">Address</th>
         <th scope="col">Gender</th>
@@ -126,14 +125,13 @@
         @foreach ($members as $data )
 
         <tr>
-           <th scope="row">{{$data->first_name}}</th>
-           <td>{{$data->last_name}}</td>
+           <th scope="row">{{$data->Memberuser->name}} </th>
            <td>{{$data->dob}}</td>
            <td>{{$data->address}}</td>
            <td>{{$data->gender}}</td>
            <td>{{$data->voter_id}}</td>
            <td>{{$data->phon_no}}</td>
-           <td>{{$data->email}}</td>
+           <td>{{$data->Memberuser->email}}</td>
            <td>{{$data->account_no}}</td>
            <td>{{$data->branch}}</td>
            <td>

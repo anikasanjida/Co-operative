@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\member;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MemberListController extends Controller
@@ -31,23 +32,33 @@ class MemberListController extends Controller
                 $file->storeAs('member', $file_name);
             }
         }
-
-        member::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'address' => $request->address,
-            'dob' => $request->dob,
-            'gender' => $request->gender,
-            'voter_id' => $request->voter_id,
-            'phon_no' => $request->phon_no,
-            'email' => $request->email,
-            'account_no' => $request->account_no,
-            'branch' => $request->branch,
-            'image' => $file_name
-
+// dd($request);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'email|required|unique:users'
         ]);
+            $User=User::create([
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'password'=>bcrypt ($request->password)
+            ]);
 
-        return redirect()->back();
+            member::create([
+                'user_id'=>$User->id,
+                'address' => $request->address,
+                'dob' => $request->dob,
+                'gender' => $request->gender,
+                'voter_id' => $request->voter_id,
+                'phon_no' => $request->phon_no,
+                'account_no' => $request->account_no,
+                'branch' => $request->branch,
+                'image' => $file_name
+                ]);
+            // DB::commit();
+
+            return redirect()->back();
+
+
     }
 
     public function deleteMember($id)
@@ -61,3 +72,20 @@ class MemberListController extends Controller
         return redirect()->back()->with('success', 'Member Deleted Successfully.');
     }
 }
+
+
+
+// public function createWorker(Request  $request){
+//     DB::beginTransaction();
+//     try {
+//         $user = User::create([]);
+//         $worker = Worker::create([
+//             'user_id'=>$user->id,
+//             'amount'=>$request->input('')
+//         ]);
+//         DB::commit();
+//     }catch (\Throwable $exception){
+//         DB::rollBack();
+// return redrect->withinput();
+//     }
+// }

@@ -15,17 +15,15 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string ('first_name',);
-            $table->string ('last_name',);
-            $table->date('dob',);
-            $table->string('address',);
-            $table->string('gender',);
-            $table->integer('voter_id',);
-            $table->integer('phon_no',);
-            $table->string('email',);
-            $table->string('account_no',);
-            $table->string('branch',);
-            $table->text('image',)->nullable();
+            $table->string ('user_id');
+            $table->date('dob');
+            $table->string('address');
+            $table->string('gender');
+            $table->integer('voter_id');
+            $table->integer('phon_no');
+            $table->string('account_no');
+            $table->string('branch');
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

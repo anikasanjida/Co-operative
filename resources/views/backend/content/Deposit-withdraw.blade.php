@@ -100,6 +100,20 @@
     </div>
     </form>
 
+    {{-- <table class="table table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
+        <thead class= "table-dark">
+          <tr>
+            <th scope="col"> member  </th>
+            <th scope="col"> loan_amount  </th>
+            <th scope="col"> loan_interest</th>
+            <th scope="col">payment_term</th>
+            <th scope="col">total_amount_interest</th>
+            <th scope="col">payment_schedule</th>
+            <th scope="col">due_date</th>
+          </tr>
+        </thead>
+        <tbody> --}}
+
     <script>
         function confirmReset() {
             return confirm('Do you really want to reset?')

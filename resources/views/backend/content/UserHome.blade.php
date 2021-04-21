@@ -6,7 +6,9 @@
         <div class="flex-item">
             <h1 id="customer">
                 Welcome User !
+                {{auth()->user()->name}}
             </h1>
+            {{-- @dd() --}}
             <p id="customer" style="max-width:800px text-centered">
                 From here you can manage the system.
                 You can add/manage member, view their transactions, edit their

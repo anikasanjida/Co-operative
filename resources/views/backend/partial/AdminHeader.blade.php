@@ -30,6 +30,12 @@
                         <a class="nav-link" href="{{ route('loan') }}">Loan module</a>
                     </li>
 
+                    @auth()
+                         <span style="color:rgb(236, 11, 11);">{{auth()->user()->name}}</span> <a href="{{route('adminlogout')}}"> Logout</a>
+                     @else
+                        <a href="{{route('userlogin')}}">Login</a>
+                        @endauth
+
                 </ul>
 
             </div>

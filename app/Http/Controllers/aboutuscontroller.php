@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Models\member;
 use Illuminate\Http\Request;
 
 class aboutuscontroller extends Controller
@@ -21,7 +22,9 @@ class aboutuscontroller extends Controller
 
     public function profile(){
 
-        return view('backend.content.profile');
+        $member = auth()->user();
+        // $m=member::all();
+        return view('backend.content.profile',compact('member'));
 
     }
 

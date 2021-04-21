@@ -13,6 +13,8 @@ class NewsController extends Controller
     }
 
     public function Depositwithdraw(){
+       // dd(auth()->user());
+    //    auth()->user()->first_name
         return view('backend.content.Deposit-withdraw');
     }
 

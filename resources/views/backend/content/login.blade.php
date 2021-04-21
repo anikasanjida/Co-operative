@@ -1,44 +1,23 @@
-{{-- <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="cover.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head> --}}
-
-@extends('main')
+@extends('Main')
 
 @section('login')
 
-<body>
+<div >
 
-	<div class="flex-container">
-            <div class="flex-item-1">
-                <form method="post" action="{{route('adminlogin')}}"class="container">
-                    @csrf
+        <!-- Example single danger button -->
+<div class="text-center">
+    <button type="button" class="btn btn-danger dropdown-toggle m-5" data-bs-toggle="dropdown" aria-expanded="false">
+      Select from here
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="{{route('adminlogin')}}">Admin Login</a></li>
+      <li><a class="dropdown-item" href="{{route('userlogin')}}">User Login</a></li>
 
-                    <div class="flex-item-login">
+    </ul>
+  </div>
 
 
-                        <h2 ><center>Welcome to Admin Panel</center></h2>
-                    </div>
+</div>
 
 
-                    <div class="flex-item">
-                        <input type="text" name="Name" placeholder="Enter your Username" required>
-                    </div>
-                    <br>
-
-                    <div class="flex-item">
-                        <input type="password" name="Password" placeholder="Enter your Password" required>
-                    </div>
-                    <br>
-                    <div class="flex-item">
-                        <button type="submit" class="btn btn-warning">Login</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-</body>
-</html>
 @endsection

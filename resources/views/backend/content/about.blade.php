@@ -3,11 +3,11 @@
 
     <div class="container">
         <h3>
-            <h3 style="text-align:center;color:rgb(243, 108, 74);font-size: 25px"><u>Cooperative Society Mission</u></h3>
+            <h3 style="text-align:center;color:rgb(21, 230, 202);font-size: 25px"><u>Cooperative Society Mission</u></h3>
 
         </h3>
         <ul>
-            <div style="font-size:17px;height:200px;float:center;margin-bottom: 4px;width:900px;color:rgb(111, 136, 136)"
+            <div style="font-size:17px;height:200px;float:center;margin-bottom: 4px;width:900px;color:rgb(241, 245, 236)"
                 class="p">
 
                 <p>The purpose of a cooperative is to realize the economic, cultural and social needs of the organization's

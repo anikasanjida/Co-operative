@@ -4,7 +4,7 @@
 
 <!-- Button trigger modal -->
 <div class=" text-start">
-    <a class="btn btn-info " data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <a class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add new notice
     </a>
     </div>
@@ -27,6 +27,11 @@
                       <label for="exampleInputEmail1">Enter notice here</label>
                       <textarea type="description" class="form-control" name="news_description" placeholder="Enter news here"></textarea>
                     </div>
+                    {{-- <div class=" from-group">
+                        <label for="exampleInputEmail1">Enter date here</label>
+                        <input type="date" class="form-control" name="posted_date" placeholder="Enter date here">
+                      </div> --}}
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-warning">submit</button>
@@ -36,6 +41,7 @@
                   </div>
                 </div>
             </div>
+
 
 @endsection
 

@@ -7,7 +7,7 @@
         View Transaction History
     </a> --}}
 
-    <h3> View Transaction History
+    <h3> View Transaction History</h3>
     </div>
 
      {{-- 1st row --}}

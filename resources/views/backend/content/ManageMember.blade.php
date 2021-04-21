@@ -2,8 +2,9 @@
 @section('content')
 
 {{-- <body> --}}
-<div style="margin-top: 10px" class="search-bar-centered">
-    <div style="background: rgba(41,199,171,0.98)" class="search-bar" id="the-search-bar">
+<div class="container">
+  <div style="margin-top: 20px" class="search-bar-centered">
+    <div style="background: rgba(41,199,171,0.98)"class="search-bar" id="the-search-bar">
         <div class="flex-item-search-bar" id="fi-search-bar">
 
             <form class="search_form" action="" method="post">
@@ -29,7 +30,9 @@
 
         </div>
     </div>
+  </div>
 </div>
+
 {{-- </body> --}}
 
 @endsection
