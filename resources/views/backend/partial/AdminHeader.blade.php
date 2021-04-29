@@ -29,13 +29,19 @@
                     <li class="nav-item nav-style ">
                         <a class="nav-link" href="{{ route('loan') }}">Loan module</a>
                     </li>
+                    <li class="nav-item nav-style ">
+                        <a class="nav-link" href="{{route('report')}}">Rport Generate</a>
+                    </li>
 
+                  <li class="nav-item nav-style ">
                     @auth()
-                         <span style="color:rgb(236, 11, 11);">{{auth()->user()->name}}</span> <a href="{{route('adminlogout')}}"> Logout</a>
-                     @else
-                        <a href="{{route('userlogin')}}">Login</a>
+                    <div class="nav-link">
+                         <span style="color:rgb(236, 11, 11);">{{auth()->user()->name}}</span> <a style="text-decoration: none;" href="{{route('adminlogout')}}"> Logout</a>
+                    </div>
+                         @else
+                        <a class="nav-link" href="{{route('userlogin')}}">Login</a>
                         @endauth
-
+                </li>
                 </ul>
 
             </div>

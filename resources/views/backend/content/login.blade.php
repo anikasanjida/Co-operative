@@ -2,6 +2,7 @@
 
 @section('login')
 
+<body style="background-image:url(/img/2.jpg); background-repeat:no-repeat;background-size:100 100%;background-attachment:fixed">
 <div >
 
         <!-- Example single danger button -->
@@ -18,6 +19,6 @@
 
 
 </div>
-
+</body>
 
 @endsection

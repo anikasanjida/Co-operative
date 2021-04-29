@@ -21,7 +21,7 @@
             @endforeach
         @endif
 
-<body>
+<body style="background-image:url(/img/l.jpg); background-repeat:no-repeat;background-size:100 100%;background-attachment:fixed">
 
 	<div class="flex-container">
             <div class="flex-item-1">

@@ -1,7 +1,7 @@
 
 @extends('AdminMain')
 @section('content')
-<body style="background-image:url(/img/user.jpg); background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed">
+<body style="background-image:url(/img/adminh.jpg); background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed">
     <div class="fluid-container " >
         <div class="flex-item">
             <h1 id="customer">

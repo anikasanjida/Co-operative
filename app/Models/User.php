@@ -45,4 +45,10 @@ class User extends Authenticatable
 
 
     }
+
+    public function m_info()
+    {
+       return $this->hasOne(member::class, 'user_id', 'id');
+    }
+
 }

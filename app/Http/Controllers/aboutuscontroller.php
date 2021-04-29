@@ -21,10 +21,10 @@ class aboutuscontroller extends Controller
     }
 
     public function profile(){
-
+        //  $title='User Profile';
         $member = auth()->user();
         // $m=member::all();
-        return view('backend.content.profile',compact('member'));
+        return view('backend.content.profile',compact('member',));
 
     }
 

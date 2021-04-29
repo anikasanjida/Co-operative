@@ -1,13 +1,15 @@
 @extends('main')
 @section('about')
 
+{{-- <body style="background-image:url(/img/1.jpg); background-repeat:no-repeat;background-size:100 100%;background-attachment:fixed"> --}}
     <div class="container">
+
         <h3>
-            <h3 style="text-align:center;color:rgb(21, 230, 202);font-size: 25px"><u>Cooperative Society Mission</u></h3>
+            <h3 style="text-align:center;color:rgb(11, 12, 12);font-size: 25px"><u>Cooperative Society Mission</u></h3>
 
         </h3>
         <ul>
-            <div style="font-size:17px;height:200px;float:center;margin-bottom: 4px;width:900px;color:rgb(241, 245, 236)"
+            <div style="font-size:17px;height:200px;float:center;margin-bottom: 4px;width:900px;color:rgb(63, 60, 57)"
                 class="p">
 
                 <p>The purpose of a cooperative is to realize the economic, cultural and social needs of the organization's
@@ -22,8 +24,8 @@
                     and has a discrete module to generate reports. The software is controlled by
                     the administrator who has the freedom to establish access rights to the users.</p>
             </div>
-            <div style="float:center;margin-bottom:.25rem;height:300px;color: rgb(233, 218, 218)" class="h">
-                <h4 style="text-align:center;color:rgb(238, 140, 102);">Challenges Faced:</h4>
+            <div style="float:center;margin-bottom:.25rem;height:300px;color: rgb(44, 47, 92)" class="h">
+                <h4 style="text-align:center;color:rgb(185, 66, 19);">Challenges Faced:</h4>
                 <h6>•Manage Multiple users and provide suitable interface</h6>
                 <h6>•Automate entire banking operations</h6>
                 <h6>•Keep track of transactions in real time</h6>
@@ -46,4 +48,5 @@
     </div>
 
     </div>
+{{-- </body> --}}
 @endsection

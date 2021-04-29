@@ -1,6 +1,8 @@
 @extends('AdminMain')
 @section('content')
 
+
+<body style="background-image:url(/img/m.jpg); background-repeat:no-repeat;background-size:100 100%;background-attachment:fixed">
 <!-- Button trigger modal -->
 <div class=" text-start">
     <a class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -98,9 +100,9 @@
     </thead>
     <tbody>
         @foreach ($loans as $data )
-
+{{-- @dd($data->loanMember->Memberuser); --}}
         <tr>
-            <th scope="row">{{$data->loanMember->first_name}} {{$data->loanMember->last_name}}</th>
+            <th scope="row">{{$data->loanMember->Memberuser->name}}</th>
            <td>{{$data->loan_amount}}</td>
            <td>{{$data->loan_interest}}</td>
            <td>{{$data->payment_term}}</td>
@@ -114,5 +116,5 @@
 
   </table>
 
-
+</body>
     @endsection

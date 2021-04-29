@@ -4,7 +4,7 @@
   </footer> --}}
 <footer>
 <!-- Copyright -->
-<div class="text-center text-dark fixed-bottom p-3" style="background-color: rgba(252, 168, 11, 0.2);">
+<div class="text-center text-light fixed-bottom p-2" style="background-color: rgba(9, 121, 226, 0.2);">
     © 2021 Copyright:By Co-operative Society
     <a class="text-dark" href="https://mdbootstrap.com/"></a>
   </div>

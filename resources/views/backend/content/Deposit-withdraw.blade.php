@@ -1,124 +1,101 @@
 @extends('UserMain')
 @section('content')
 
-<body>
-    {{-- <form style="margin-left: 100px" class="add_customer_form" action="atm_simulation_req.php" method="post">
-        <div class="flex-container-form_header">
-            <h1 id="form_header">Cooperative Society</h1>
-        </div>
-
-        <div class="flex-container">
-            <div class=container>
-                <label>Enter Amount:</label><br>
-                <input name="amt" size="24" type="number" min="0" step=".5" required />
-            </div>
-        </div>
-
-        <div class="flex-container">
-            <div class=container>
-                <label>Type :</label>
-            </div>
-            <div class="flex-container-radio">
-                <div class="container">
-                    <input type="radio" name="type" value="debit" id="debit-radio" checked>
-                    <label id="radio-label" for="debit-radio"><span class="radio">Withdraw</span></label>
-                </div>
-                <div class="container">
-                    <input type="radio" name="type" value="credit" id="credit-radio">
-                    <label id="radio-label" for="credit-radio"><span class="radio">Deposit</span></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex-container">
-            <div  class=container>
-                <label>PIN(4 digit) :</b></label><br>
-                <input name="pin" size="12" type="password" required />
-            </div>
-        </div>
-
-        <div class="flex-container">
-            <div class="container">
-                <button type="submit">Submit</button>
-            </div>
-
-            <div class="container">
-                <button type="reset" class="reset" onclick="return confirmReset();">Reset</button>
-            </div>
-        </div>
-
-    </form> --}}
 
 
-    <form class="container w-25 my-5">
+<body style="background-image:url(/img/ful.jpg); background-repeat:no-repeat;background-size:50 50%;background-attachment:fixed">
+    <form method="post" action="{{ route('loan.request')}}" class="container w-26 my-4">
+        @csrf
 
-
-        <div class="modal-body bg-info" style="height: 450px;">
+        <div class="modal-body bg-info" style="height: 300px;">
 
                   <div class=" from-group">
                     <label for="exampleInputEmail1">Request Type</label>
-                    <select class="form-control" name="gender" id="" aria-label="Default select example">
-                        <option value="Null" >select from here</option>
-                        <option value="Male">Loan</option>
-                        <option value="Female">Withdraw</option>
+                    <select class="form-control" name="type" id="" aria-label="Default select example">
+                        <option value="" >select from here</option>
+                        <option value="Loan">Loan</option>
+                        <option value="Withdraw">Withdraw</option>
+                        <option value="Deposit">Deposit</option>
 
                       </select>
 
+                      @error('type')
+                      <p class="invalid">{{$message}}</p>
+                      @enderror
+
                   </div>
 
                   <div class=" from-group">
-                    <label for="exampleInputEmail1">Member id</label>
-                    <input type="id" class="form-control"name="member_id" placeholder="Enter Your ID">
+                    <label for="exampleInputEmail1">Loan Purpose</label>
+                    <textarea type="text" class="form-control"name="loan_purpose" placeholder="Enter Reason here"></textarea>
 
+                    @error('loan_purpose')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
                   </div>
-                  <div class=" from-group">
-                    <label for="exampleInputEmail1">Account No.</label>
-                    <input type="id" class="form-control"name="account-No" placeholder="Enter Your Account No.">
 
-                  </div>
-                  <div class=" from-group">
-                    <label for="phon_no">phn_no</label>
-                    <input type="tel" class="form-control" name="phon_no" placeholder="Enter phn_no">
-                </div>
-                <div class=" from-group">
-                  <label for="exampleInputEmail1">Email Address</label>
-                  <input type="email" class="form-control"name="email" placeholder="name@example.com">
-
-                </div>
-                <div class=" from-group">
+                 <div class=" from-group">
                     <label for="exampleInputEmail1">Requested Amount</label>
                     <input type="text" class="form-control"name="R_Amount" placeholder="10000000">
 
-                  </div>
-
-
-
                 <div class="modal-footer">
-          {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-warning">submit</button>
+          {{-- <a href="{{ route('requestview') }}" class="btn btn-warning">submit</a> --}}
         </div>
     </div>
     </form>
 
-    {{-- <table class="table table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
-        <thead class= "table-dark">
+    <div class="title text-center mb-3 bg-info text-dark">
+        <h3 class="font-weight-bolder p-1 m-5">Request View</h3>
+
+     </div>
+
+
+
+{{-- table --}}
+    <table class="table table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
+        <thead class= "table-light">
           <tr>
             <th scope="col"> member  </th>
-            <th scope="col"> loan_amount  </th>
-            <th scope="col"> loan_interest</th>
-            <th scope="col">payment_term</th>
-            <th scope="col">total_amount_interest</th>
-            <th scope="col">payment_schedule</th>
-            <th scope="col">due_date</th>
+            <th scope="col">Request Type  </th>
+            <th scope="col">Loan Purpose</th>
+            <th scope="col">Requested Amount</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody> --}}
+        <tbody>
+           @foreach ($user_request as $data )
 
-    <script>
+        <tr>
+            <th scope="row">{{$data->userreq->name}}</th>
+           <td>{{$data->request_type}}</td>
+           <td>{{$data->loan_purpose}}</td>
+           <td>{{$data->requested_amount}}</td>
+
+
+        <td>
+            <a class="btn btn-success" href="#">Pending</a>
+        </td>
+
+        </tr>
+    </tbody>
+
+    @endforeach
+
+
+
+  </table>
+
+</body>
+@endsection
+
+    {{-- <script>
         function confirmReset() {
             return confirm('Do you really want to reset?')
         }
     </script>
 
-    </body>
-    @endsection
+    </body> --}}
+
+{{-- @dd($data->loanMember->Memberuser); --}}

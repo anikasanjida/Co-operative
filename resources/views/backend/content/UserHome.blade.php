@@ -1,7 +1,7 @@
 
 @extends('UserMain')
 @section('content')
-<body>
+<body style="background-image:url(/img/userp.jpg); background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed">
     <div class="flex-container">
         <div class="flex-item">
             <h1 id="customer">

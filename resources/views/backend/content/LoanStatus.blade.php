@@ -1,68 +1,69 @@
 @extends('AdminMain')
 @section('content')
+{{-- table --}}
+<table class="table mt-5 table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
+    <thead class= "table-info">
+      <tr>
+        <th scope="col"> member  </th>
+        <th scope="col">Request Type  </th>
+        <th scope="col">Loan Purpose</th>
+        <th scope="col">Requested Amount</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ($user_request as $data )
 
-<body>
-    <form style="margin-left: 100px" class="add_customer_form" action="" method="post">
-        <div class="flex-container-form_header">
-            <h1 id="form_header">Please fill in the following details . . .</h1>
-        </div>
-
-        <div class="flex-container">
-            <div class=container>
-                <label>name :</label><br>
-                <input name="name" size="30" type="text" required />
-            </div>
-        </div>
-
-        <div class="flex-container">
-            <div class=container>
-                <label>Gender :</label>
-            </div>
-
-            <div class="flex-container-radio">
-                <div class="container">
-                    <input type="radio" name="gender" value="male" id="male-radio" checked>
-                    <label id="radio-label" for="male-radio"><span class="radio">Male</span></label>
-                </div>
-                <div class="container">
-                    <input type="radio" name="gender" value="female" id="female-radio">
-                    <label id="radio-label" for="female-radio"><span class="radio">Female</span></label>
-                </div>
-                <div class="container">
-                    <input type="radio" name="gender" value="others" id="other-radio">
-                    <label id="radio-label" for="other-radio"><span class="radio">Others</span></label>
-                </div>
-            </div>
-        </div>
-        <div class="flex-container">
-            <div  class=container>
-                <label>Phone No. :</b></label><br>
-                <input name="p" size="30" type="text" required />
-            </div>
-        </div>
-
-        <div class="flex-container">
-            <div class=container>
-                <label>Address :</label><br>
-                <textarea name="add" required /></textarea>
-            </div>
-        </div>
-
-        <div class="flex-container">
-            <div class=container>
-                <label>Loan Balance :</label><br>
-                <input name="amt" size="20" type="number" min="0" step=".5"required />
-            </div>
-        </div>
-        <div class="flex-container">
-            <div class="container">
-                <input type="submit" name="submit"></input>
-            </div>
+        <tr>
+            <th scope="row">{{$data->userreq->name}}</th>
+           <td>{{$data->request_type}}</td>
+           <td>{{$data->loan_purpose}}</td>
+           <td>{{$data->requested_amount}}</td>
+           <td>{{$data->status}}</td>
 
 
-        </div>
-        </div>
-    </form>
+        <td>
+            {{-- <div class="dropdown">
+                <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Action
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        @if ($data->status == 'pending')
+                            <a class="btn btn-success" href="{{ route('completedUpdate', ['id' => $data->id, 'status' => 'occupied']) }}">Approve</a>
+                        @elseif ( $data->status == 'occupied')
+                            <a class="btn" href="{{ route('completedUpdate', ['id' => $data->id, 'status' => 'available']) }}">Make Available</a>
+                        @else
+                            <a class="btn" href="">Pending</a>
+                        @endif
+                    </li>
 
-    </body>
+
+                    <li>
+                        @if ($data->status == 'yes')
+                            <a class="btn" href="{{ route('completedUpdate', ['id' => $data->id, 'status' => 'occupied']) }}">Make Occupied</a>
+                        @elseif ( $data->status == 'occupied')
+                            <a class="btn" href="{{ route('completedUpdate', ['id' => $data->id, 'status' => 'available']) }}">Make Available</a>
+                        @else
+                            <a class="btn" href="">Pending</a>
+                        @endif
+                    </li>
+
+
+
+
+                </ul>
+            </div> --}}
+
+            <a href="{{ route('checkLoan',$data->id) }}" class="btn btn-warning">Check Request</a>
+        </td>
+
+        </tr>
+
+           @endforeach
+
+  </table>
+
     @endsection

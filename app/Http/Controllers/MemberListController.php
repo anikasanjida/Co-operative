@@ -10,7 +10,7 @@ class MemberListController extends Controller
 {
     public function list()
     {
-        $members = member::paginate(3);
+        $members = member::paginate(2);
         return view('backend.content.MemberList', compact('members'));
     }
 
@@ -70,6 +70,32 @@ class MemberListController extends Controller
 
         //        Product::where('id',$id)->delete();
         return redirect()->back()->with('success', 'Member Deleted Successfully.');
+    }
+
+    public function editmember($id)
+    {
+       //get all data of for this id
+        $members=member::find($id);
+
+        //pass data to a view
+        return view('backend.content.edit',compact('members',));
+
+    }
+
+    public function updatemember(Request $request,$id)
+    {
+
+        member::find($id)->update([
+            'address' => $request->address,
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'voter_id' => $request->voter_id,
+            'phon_no' => $request->phon_no,
+            'account_no' => $request->account_no,
+            'branch' => $request->branch,
+            // 'image' => $file_name
+        ]);
+        return redirect()->route('MemberList')->with('success','Updated Successfully.');
     }
 }
 

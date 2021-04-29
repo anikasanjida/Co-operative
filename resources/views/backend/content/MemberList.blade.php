@@ -1,8 +1,15 @@
 @extends('AdminMain')
 @section('content')
 
+<body style="background-image:url(/img/star.jpg); background-repeat:no-repeat;background-size:100 100%;background-attachment:fixed">
 
-<!-- Button trigger modal -->
+ @if(session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+@endif
+
+    <!-- Button trigger modal -->
 <div class=" text-start">
 <a class="btn btn-info " data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add member
@@ -118,7 +125,8 @@
         <th scope="col">Email Address</th>
         <th scope="col">Account no</th>
         <th scope="col">Branch Name</th>
-        <th scope="col">image</th>
+        <th scope="col">Image</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -139,7 +147,7 @@
         </td>
 
         <td>
-            <a class="btn btn-success" href="">View</a>
+            <a class="btn btn-success" href="{{route('member.edit',$data->id)}}">Edit</a>
             <a class="btn btn-danger" href="{{route('member.delete',$data->id)}}">Delete</a>
         </td>
 
@@ -149,4 +157,5 @@
 
   </table>
 {{$members->links()}}
+</body>
 @endsection
