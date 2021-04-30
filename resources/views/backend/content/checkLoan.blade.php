@@ -28,7 +28,7 @@
                                Request Cancel </a>
                         </div>
                             <div class="col-md-6">
-                                <a href="#"class="btn btn-danger w-100 text-center">
+                                <a href="{{ route('request.approval',$u_rqs->id)}}"class="btn btn-danger w-100 text-center">
                                    Request Approve  </a>
                             </div>
 

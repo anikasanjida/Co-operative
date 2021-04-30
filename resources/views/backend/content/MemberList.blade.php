@@ -9,13 +9,13 @@
     </div>
 @endif
 
+
     <!-- Button trigger modal -->
 <div class=" text-start">
 <a class="btn btn-info " data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add member
 </a>
 </div>
-
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -104,12 +104,34 @@
     </div>
   </div>
 
+
+  {{-- search option --}}
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+
+  <div class="col-md-4">
+    <form action="{{route('member.search')}}" method="get">
+        @csrf
+    <input name="search" type="text" placeholder="Search" class="form-control">
+    <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+<div>
+@if(isset($search))
+        <p>
+        <span class="alert alert-success"> you are searching for '{{$search}}' , found ({{count($members)}})</span>
+        </p>
+    @endif
+
+    </div>
   {{-- Table title --}}
 
-<div class="title text-center mb-3 bg-info text-dark">
+{{-- <div class="title text-center mb-3 bg-info text-dark">
    <h3 class="font-weight-bolder p-1 m-5">Member List</h3>
 
-</div>
+</div> --}}
 
 
     {{-- table --}}
@@ -148,6 +170,7 @@
 
         <td>
             <a class="btn btn-success" href="{{route('member.edit',$data->id)}}">Edit</a>
+            <a class="btn btn-success" href="#">Collect Money</a>
             <a class="btn btn-danger" href="{{route('member.delete',$data->id)}}">Delete</a>
         </td>
 

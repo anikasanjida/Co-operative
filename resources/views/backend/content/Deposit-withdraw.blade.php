@@ -62,6 +62,7 @@
             <th scope="col">Loan Purpose</th>
             <th scope="col">Requested Amount</th>
             <th scope="col">Action</th>
+            <th scope="col">Note</th>
           </tr>
         </thead>
         <tbody>
@@ -72,11 +73,11 @@
            <td>{{$data->request_type}}</td>
            <td>{{$data->loan_purpose}}</td>
            <td>{{$data->requested_amount}}</td>
+           <td>{{$data->status }}</td>
+           <td class="text-success">{{$data->note }}</td>
 
 
-        <td>
-            <a class="btn btn-success" href="#">Pending</a>
-        </td>
+
 
         </tr>
     </tbody>

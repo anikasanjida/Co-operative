@@ -30,7 +30,10 @@
                         <a class="nav-link" href="{{ route('loan') }}">Loan module</a>
                     </li>
                     <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{route('report')}}">Rport Generate</a>
+                        <a class="nav-link" href="{{route('report')}}">Report Generate</a>
+                    </li>
+                    <li class="nav-item nav-style ">
+                        <a class="nav-link" href="{{route('Approval')}}">Approval List</a>
                     </li>
 
                   <li class="nav-item nav-style ">

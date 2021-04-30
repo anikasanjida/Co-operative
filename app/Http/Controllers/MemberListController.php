@@ -1,18 +1,42 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Mail\AddedNotification;
 use App\Models\member;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MemberListController extends Controller
 {
     public function list()
     {
-        $members = member::paginate(2);
+        // $title='Member List';
+        $members = member::paginate(3);
         return view('backend.content.MemberList', compact('members'));
     }
+
+
+    public function search(Request $request)
+    {
+        $search=$request->search;
+
+        if($search){
+            $members=member::whereHas('Memberuser',function($query) use($search){
+                $query->where('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%');
+            })->orWhere('phon_no','like','%'.$search.'%')
+                            ->orWhere('account_no','like','%'.$search.'%')->paginate(3);
+        }else
+        {
+            $members=member::paginate(3);
+        }
+
+        // where(name=%search%)
+        $title="Search result";
+        return view('backend.content.MemberList',compact('title','members','search'));
+    }
+
+
 
     public function add(Request $request)
     {
@@ -33,17 +57,18 @@ class MemberListController extends Controller
             }
         }
 // dd($request);
-        $request->validate([
-            'name' => 'required',
-            'email' => 'email|required|unique:users'
-        ]);
+            $request->validate([
+                'name' => 'required',
+                'email' => 'email|required|unique:users'
+            ]);
+
             $User=User::create([
                 'name'=>$request->name,
                 'email'=>$request->email,
                 'password'=>bcrypt ($request->password)
             ]);
 
-            member::create([
+           $add= member::create([
                 'user_id'=>$User->id,
                 'address' => $request->address,
                 'dob' => $request->dob,
@@ -56,7 +81,12 @@ class MemberListController extends Controller
                 ]);
             // DB::commit();
 
-            return redirect()->back();
+            Mail::to($User->email)->send(new AddedNotification($add));
+
+            return redirect()->back()->with('success','Member Added Successfully.');
+//send email to user
+
+
 
 
     }
@@ -78,7 +108,7 @@ class MemberListController extends Controller
         $members=member::find($id);
 
         //pass data to a view
-        return view('backend.content.edit',compact('members',));
+        return view('backend.content.edit',compact('members'));
 
     }
 
@@ -97,21 +127,7 @@ class MemberListController extends Controller
         ]);
         return redirect()->route('MemberList')->with('success','Updated Successfully.');
     }
+
+
 }
 
-
-
-// public function createWorker(Request  $request){
-//     DB::beginTransaction();
-//     try {
-//         $user = User::create([]);
-//         $worker = Worker::create([
-//             'user_id'=>$user->id,
-//             'amount'=>$request->input('')
-//         ]);
-//         DB::commit();
-//     }catch (\Throwable $exception){
-//         DB::rollBack();
-// return redrect->withinput();
-//     }
-// }

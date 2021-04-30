@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\noticecontroller;
 use App\Http\Controllers\contactcontroller;
-use App\Http\Controllers\ReportControllerr;
+use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\LoanReqController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\LoanStatusController;
@@ -93,11 +93,15 @@ Route::get('/admin/adminlogout',[AdminLoginController::class,'addlogout'])->name
 //admin homepage
 Route::group(['middleware'=>'admin-auth'],function (){
 
- Route::get('/adminreg/AdminHome',[aboutuscontroller::class,'home'])->name('AdminHome');
+Route::get('/adminreg/AdminHome',[aboutuscontroller::class,'home'])->name('AdminHome');
 Route::get('/adminreg/member',[contactcontroller::class,'member'])->name('member');
 Route::get('/adminreg/transaction',[contactcontroller::class,'transaction'])->name('transaction');
-Route::get('/adminreg/memberlist',[MemberListController::class,'list'])->name('MemberList');
 Route::get('/adminreg/ManageMember',[ManageMemberController::class,'list'])->name('ManageMember');
+
+Route::get('/adminreg/approval',[ApprovalController::class,'approve'])->name('Approval');
+Route::get('/adminreg/approval/request/{id}',[ApprovalController::class,'ApproveStatus'])->name('request.approval');
+
+//edit,update member
 Route::get('/adminreg/delete/{id}',[MemberListController::class,'deleteMember'])->name('member.delete');
 Route::get('/adminreg/edit/{id}',[MemberListController::class,'editmember'])->name('member.edit');
 Route::put('/adminreg/update/{id}',[MemberListController::class,'updatemember'])->name('member.update');
@@ -113,8 +117,11 @@ Route::get('/adminreg/LoanStatus/{id}/{status}', [LoanStatusController::class, '
 //report
 Route::get('/adminreg/report',[ReportController::class,'report'])->name('report');
 
-//Add Member
-Route::post('/adminreg/memberlist',[MemberlistController::class,'add'])->name('member.add');
+//Add &   search Member
+
+Route::get('/adminreg/memberlist',[MemberListController::class,'list'])->name('MemberList');
+Route::post('/adminreg/memberlist',[MemberListController::class,'add'])->name('member.add');
+Route::get('/adminreg/search',[MemberListController::class,'search'])->name('member.search');
 
 //notice
 Route::get('/adminreg/news',[NewsController::class,'news'])->name('news');

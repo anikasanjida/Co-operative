@@ -10,9 +10,8 @@
             </h1>
             {{-- @dd() --}}
             <p id="customer" style="max-width:800px text-centered">
-                From here you can manage the system.
-                You can add/manage member, view their transactions, edit their
-                details and even delete them. You can also post news on the site.
+                From here you can see your all account status with your profile
+                and also you can send request to the admin for balance transaction process.
             </p>
         </div>
     </div>

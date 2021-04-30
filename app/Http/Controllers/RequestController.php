@@ -21,14 +21,12 @@ class RequestController extends Controller
             'loan_purpose' =>$request->loan_purpose,
             'requested_amount' =>$request-> R_Amount
         ]);
-        return redirect('/User/Deposit-withdraw');
+        return redirect()->back();;
 
-        // validate
-
-
-        //user_id
 
     }
+
+
 
 
 }
