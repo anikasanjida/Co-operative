@@ -19,6 +19,9 @@ class CreateUserRequestsTable extends Migration
             $table->string('request_type');
             $table->string('loan_purpose');
             $table->double('requested_amount');
+            $table->double('paid_amount')->nullable();
+            $table->double('payable_amount')->nullable();;
+            $table->double('total_interest_amount')->nullable();;
             $table->string('status')->default('pending');
             $table->string('note')->nullable();
             $table->timestamps();

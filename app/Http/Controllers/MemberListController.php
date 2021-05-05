@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Mail\AddedNotification;
+use App\Models\installment_collect;
+use App\Models\loan_transaction;
+use App\Models\m_collect;
 use App\Models\member;
 use App\Models\User;
+use App\Models\user_request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -13,6 +17,7 @@ class MemberListController extends Controller
     {
         // $title='Member List';
         $members = member::paginate(3);
+        // dd($members);
         return view('backend.content.MemberList', compact('members'));
     }
 
@@ -81,10 +86,12 @@ class MemberListController extends Controller
                 ]);
             // DB::commit();
 
+
+            //send email to user
             Mail::to($User->email)->send(new AddedNotification($add));
 
             return redirect()->back()->with('success','Member Added Successfully.');
-//send email to user
+
 
 
 
@@ -128,6 +135,60 @@ class MemberListController extends Controller
         return redirect()->route('MemberList')->with('success','Updated Successfully.');
     }
 
+    public function collectmoney($id){
+
+        $collects = m_collect::where('user_id',$id)->orderBy('id','desc')->get();
+
+        // dd($collects);
+
+        return view('backend.content.collectmoney',compact('id','collects'));
+
+
+    }
+    public function store(Request $request){
+// dd($request->all());
+
+  m_collect::create([
+    'user_id'=>$request->user_id,
+    'month' => $request->month,
+    'year' => $request->year,
+    'amount' => $request->amount,
+
+    ]);
+    return redirect()->back()->with('success','money collect successfully');
+ }
+
+ public function collectinstallment($id){
+
+
+    return view('backend.content.collectinstallment',compact('id'));
+
+
+}
+public function datastore(Request $request){
+// dd($request->all());
+
+
+
+$loan = user_request::where('user_id',$request->user_id)->where('status','approved')->first();
+
+
+
+if($loan){
+    installment_collect::create([
+        'user_id'=>$request->user_id,
+        'loan_id'=>$loan->id,
+        'month' => $request->month,
+        'date'=>$request->date,
+        'amount' => $request->amount,
+
+        ]);
+        return redirect()->back()->with('success','installment  given successfully');
+}else{
+    return redirect()->back();
+}
+
+}
 
 }
 

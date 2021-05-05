@@ -30,7 +30,13 @@
 
             <div class=" from-group">
                 <label for="exampleInputEmail1">Enter member</label>
-                <input type="number" class="form-control" name="member_id" placeholder="Enter member_id">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    @foreach ($member as $data)
+
+                    <option value="{{ $data->id }}">{{ $data->Memberuser->name }}</option>
+                    @endforeach
+                  </select>
 
               </div>
 

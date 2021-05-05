@@ -24,7 +24,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="#" class="btn btn-danger w-100 text-center">
+                            <a href="{{ route('request.rejected',$u_rqs->id)}}" class="btn btn-danger w-100 text-center">
                                Request Cancel </a>
                         </div>
                             <div class="col-md-6">

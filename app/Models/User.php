@@ -42,8 +42,8 @@ class User extends Authenticatable
     ];
     public function member(){
         return $this->hasOne(member::class, 'user_id', 'id');
-
-
     }
-
+    public function userRqs(){
+        return $this->hasOne(user_request::class, 'user_id', 'id');
+    }
 }

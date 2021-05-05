@@ -25,7 +25,10 @@
 
         <td>
 
+            @if($data->status != 'approved')
             <a href="{{ route('checkLoan',$data->id) }}" class="btn btn-warning">Check Request</a>
+            @endif
+            <a href="{{route('transaction.view',['id'=>$data->id,'user_id'=>$data->userreq->id])}}" class="btn btn-info">View Transaction</a>
         </td>
 
         </tr>

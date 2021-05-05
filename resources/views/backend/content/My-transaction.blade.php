@@ -57,36 +57,4 @@
         </div>
      </div>
 
-    {{-- 3rd row --}}
-    {{-- <div class="row m-3">
-        <div class="col-md-4 ">
-            <div class="card bg-success text-white shadow" style="width: 20rm;height:10rem;">
-                <div class="card-body">
-                    <h5><span data-feather="truck"></span>
-                        <small>Product Ready for Shipment</small></h5>
-                    <h1>50 Unit</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 ">
-            <div class="card bg-warning text-white shadow" style="width: 20rm; height:10rem">
-                <div class="card-body">
-                    <h5><span data-feather="users"></span>
-                        <small>Number of Active Warkers in production </small> </h5>
-                    <h1>1200</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 ">
-            <div class="card text-white shadow" style="background-color:brown; width: 20rm;height:10rem;">
-                <div class="card-body">
-                    <h5><span data-feather="alert-triangle"></span>
-                        <small>Material Shortage</small> </h5>
-                    <h1>3 Units</h1>
-                </div>
-            </div>
-        </div>
-
-    </div> --}}
-
     @endsection

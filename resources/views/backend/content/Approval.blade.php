@@ -32,6 +32,8 @@
         <th scope="col">Request Type  </th>
         <th scope="col">Loan Purpose</th>
         <th scope="col">Requested Amount</th>
+        <th scope="col">Amount with intarest</th>
+        <th scope="col">Due</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
@@ -43,6 +45,9 @@
            <td>{{$data->request_type}}</td>
            <td>{{$data->loan_purpose}}</td>
            <td>{{$data->requested_amount}}</td>
+           <td>{{$data->total_interest_amount}}</td>
+           <td>{{$data->payable_amount}}</td>
+
            <td class="text-success">{{$data->status}}</td>
 
 

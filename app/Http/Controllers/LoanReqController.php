@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\loan;
+use App\Models\member;
 use Illuminate\Http\Request;
 
 class LoanReqController extends Controller
 {
     public function LoanRequest(){
         $loans=loan::all();
-        return view('backend.content.LoanRequest',compact('loans'));
+        $member=member::all();
+        return view('backend.content.LoanRequest',compact('loans','member'));
     }
 
     public function add(Request $request){

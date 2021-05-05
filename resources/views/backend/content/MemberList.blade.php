@@ -34,23 +34,23 @@
 
                 <div class=" from-group">
                   <label for="exampleInputEmail1">Enter Name</label>
-                  <input type="text" class="form-control"name="name" placeholder="Enter member name">
+                  <input type="text" class="form-control"name="name" placeholder="Enter member name"required>
 
                 </div>
 
                <div class=" from-group">
                   <label for="exampleInputEmail1">date of birth</label>
-                  <input type="date" class="form-control"name="dob" placeholder="Enter birathday date">
+                  <input type="date" class="form-control"name="dob" placeholder="Enter birathday date"required>
 
                 </div>
                 <div class=" from-group">
                     <label for="exampleInputEmail1">Address</label>
-                    <textarea type="text" class="form-control"name="address" placeholder="Enter Address here"></textarea>
+                    <textarea type="text" class="form-control"name="address" placeholder="Enter Address here"required></textarea>
 
                   </div>
                   <div class=" from-group">
                     <label for="exampleInputEmail1">Gender</label>
-                    <select class="form-control" name="gender" id="" aria-label="Default select example">
+                    <select class="form-control" name="gender" id="" aria-label="Default select example"required>
                         <option value="Null" >select from here</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -61,27 +61,27 @@
 
                   <div class=" from-group">
                     <label for="exampleInputEmail1">Voter id</label>
-                    <input type="number" class="form-control"name="voter_id" placeholder="Enter voter id">
+                    <input type="number" class="form-control"name="voter_id" placeholder="Enter voter id"required>
 
                   </div>
                   <div class=" from-group">
                     <label for="phon_no">Phone_number</label>
-                    <input type="tel" class="form-control" name="phon_no" placeholder="Enter phn_no">
+                    <input type="tel" class="form-control" name="phon_no" placeholder="Enter phn_no"required>
                 </div>
                 <div class=" from-group">
                   <label for="exampleInputEmail1">Email Address</label>
-                  <input type="email" class="form-control"name="email" placeholder="name@example.com">
+                  <input type="email" class="form-control"name="email" placeholder="name@example.com"required>
 
                 </div>
 
                   <div class=" from-group">
                     <label for="exampleInputEmail1">Account no</label>
-                    <input type="number" class="form-control"name="account_no" placeholder="Enter Account number">
+                    <input type="number" class="form-control"name="account_no" placeholder="Enter Account number"required>
                   </div>
 
                   <div class=" from-group">
                     <label for="exampleInputEmail1">Branch Name</label>
-                    <input type="text" class="form-control"name="branch" placeholder="Enter Branch Name">
+                    <input type="text" class="form-control"name="branch" placeholder="Enter Branch Name"required>
 
                   </div>
                   <div class="from-group">
@@ -91,7 +91,7 @@
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Upload Image</label>
-                    <input name="members_image" type="file" class="form-control">
+                    <input name="members_image" type="file" class="form-control"required>
                </div>
 
         </div>
@@ -153,7 +153,6 @@
     </thead>
     <tbody>
         @foreach ($members as $data )
-
         <tr>
            <th scope="row">{{$data->Memberuser->name}} </th>
            <td>{{$data->dob}}</td>
@@ -169,8 +168,14 @@
         </td>
 
         <td>
-            <a class="btn btn-success" href="{{route('member.edit',$data->id)}}">Edit</a>
-            <a class="btn btn-success" href="#">Collect Money</a>
+            {{-- @dd($data->Memberuser->userRqs->status); --}}
+            <a class="btn btn-warning" href="{{route('member.edit',$data->id)}}">Edit</a>
+            <a class="btn btn-success" href="{{route('collect',$data->user_id)}}">Collect Money</a>
+            @if(!$data->Memberuser->userRqs == null)
+            @if($data->Memberuser->userRqs->status == 'approved')
+            <a class="btn btn-info" href="{{route('installment',$data->user_id)}}">Collect Installment</a>
+            @endif
+            @endif
             <a class="btn btn-danger" href="{{route('member.delete',$data->id)}}">Delete</a>
         </td>
 

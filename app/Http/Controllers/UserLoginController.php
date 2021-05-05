@@ -23,7 +23,7 @@ class UserLoginController extends Controller
 
         //authenticate
         $credentials = $request->only('email', 'password');
-//        dd($credentials);
+    //    dd($credentials);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->route('UserHome')->with('success','User Login Success.');

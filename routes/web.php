@@ -98,20 +98,29 @@ Route::get('/adminreg/member',[contactcontroller::class,'member'])->name('member
 Route::get('/adminreg/transaction',[contactcontroller::class,'transaction'])->name('transaction');
 Route::get('/adminreg/ManageMember',[ManageMemberController::class,'list'])->name('ManageMember');
 
+
 Route::get('/adminreg/approval',[ApprovalController::class,'approve'])->name('Approval');
 Route::get('/adminreg/approval/request/{id}',[ApprovalController::class,'ApproveStatus'])->name('request.approval');
+Route::get('/adminreg/rejected/request/{id}',[ApprovalController::class,'RejectStatus'])->name('request.rejected');
+// Route::get('/adminreg/search',[ApprovalController::class,'search'])->name('request.search');
 
 //edit,update member
 Route::get('/adminreg/delete/{id}',[MemberListController::class,'deleteMember'])->name('member.delete');
 Route::get('/adminreg/edit/{id}',[MemberListController::class,'editmember'])->name('member.edit');
 Route::put('/adminreg/update/{id}',[MemberListController::class,'updatemember'])->name('member.update');
+Route::get('/adminreg/collectmoney/{id}',[MemberListController::class,'collectmoney'])->name('collect');
+Route::post('/adminreg/collectmoney',[MemberListController::class,'store'])->name('money.collect');
 
+
+Route::get('/adminreg/collectinstallment/{id}',[MemberListController::class,'collectinstallment'])->name('installment');
+Route::post('/adminreg/collectinstallment',[MemberListController::class,'datastore'])->name('money.installment');
 
 Route::get('/adminreg/loan',[contactcontroller::class,'loan'])->name('loan');
 Route::get('/adminreg/LoanRequest',[LoanReqController::class,'LoanRequest'])->name('LoanRequest');
 Route::post('/adminreg/LoanRequest',[LoanReqController::class,'add'])->name('loan.add');
 Route::get('/adminreg/LoanStatus',[LoanStatusController::class,'LoanStatus'])->name('LoanStatus');
 Route::get('/adminreg/checkLoan/{id}',[LoanStatusController::class,'checkLoan'])->name('checkLoan');
+Route::get('/adminreg/viewtransaction/{id}/{user_id}',[LoanStatusController::class,'viewtransaction'])->name('transaction.view');
 Route::get('/adminreg/LoanStatus/{id}/{status}', [LoanStatusController::class, 'completedUpdate'])->name('completedUpdate');
 
 //report

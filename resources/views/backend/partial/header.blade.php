@@ -2,7 +2,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-secondary bg-info">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Co-operative System </a>
+            <a class="navbar-brand" href="{{ route('home') }}">Co-operative System </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">

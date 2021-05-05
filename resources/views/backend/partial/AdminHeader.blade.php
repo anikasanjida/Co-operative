@@ -23,9 +23,9 @@
                         <a class="nav-link" href="{{ route('member') }}">Members</a>
                     </li>
 
-                    <li class="nav-item nav-style ">
+                    {{-- <li class="nav-item nav-style ">
                         <a class="nav-link" href="{{ route('transaction') }}">Transaction</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item nav-style ">
                         <a class="nav-link" href="{{ route('loan') }}">Loan module</a>
                     </li>

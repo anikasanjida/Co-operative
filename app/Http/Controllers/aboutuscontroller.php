@@ -28,14 +28,6 @@ class aboutuscontroller extends Controller
 
     }
 
-
-    // public function profile(){
-    //     $members= member::all();
-    //     return view('backend.content.UserHome', compact('members'));
-
-
-    // }
-
     public function Mytransaction(){
         return view('backend.content.My-transaction');
     }

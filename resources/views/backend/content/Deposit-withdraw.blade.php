@@ -61,6 +61,8 @@
             <th scope="col">Request Type  </th>
             <th scope="col">Loan Purpose</th>
             <th scope="col">Requested Amount</th>
+            <th scope="col">Payable_Amount</th>
+            <th scope="col">Total_interest amount</th>
             <th scope="col">Action</th>
             <th scope="col">Note</th>
           </tr>
@@ -73,10 +75,10 @@
            <td>{{$data->request_type}}</td>
            <td>{{$data->loan_purpose}}</td>
            <td>{{$data->requested_amount}}</td>
+           <td>{{$data->payable_amount}}</td>
+           <td>{{$data->total_interest_amount}}</td>
            <td>{{$data->status }}</td>
            <td class="text-success">{{$data->note }}</td>
-
-
 
 
         </tr>

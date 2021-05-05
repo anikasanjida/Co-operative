@@ -69,6 +69,7 @@
     @yield('notice')
     @yield('contact')
 
+
   </main>
 
 

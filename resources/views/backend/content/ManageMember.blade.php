@@ -2,7 +2,7 @@
 @section('content')
 
 {{-- <body> --}}
-<div class="container">
+{{-- <div class="container">
   <div style="margin-top: 20px" class="search-bar-centered">
     <div style="background: rgba(41,199,171,0.98)"class="search-bar" id="the-search-bar">
         <div class="flex-item-search-bar" id="fi-search-bar">
@@ -31,7 +31,7 @@
         </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 {{-- </body> --}}
 
