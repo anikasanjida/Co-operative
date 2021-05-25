@@ -3,7 +3,7 @@
 
 <body style="background-image:url(/img/ful.jpg); background-repeat:no-repeat;background-size:100 100%;background-attachment:fixed">
 <!-- Button trigger modal -->
-<div class=" text-start">
+<div class=" text-start p-5">
     <a class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add new notice
     </a>

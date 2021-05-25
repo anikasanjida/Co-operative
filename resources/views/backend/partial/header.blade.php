@@ -20,7 +20,8 @@
                         <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
                     </li>
                     <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{ route('notice') }}">Notice</a>
+                        <a class="nav-link" href="{{ route('notice') }}">Notice
+                            <span class="badge bg-danger rounded-pill">{{$notice_count}}</span></a>
                     </li>
                     <li class="nav-item nav-style">
                         <a class="nav-link" href="{{ route('contact') }}">Contact</a>

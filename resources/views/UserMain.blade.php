@@ -62,12 +62,12 @@
 
     @yield('content')
 
-    @yield('home')
+    {{-- @yield('home')
     @yield('about')
     @yield('gallery')
     @yield('login')
     @yield('notice')
-    @yield('contact')
+    @yield('contact') --}}
 
   </main>
 

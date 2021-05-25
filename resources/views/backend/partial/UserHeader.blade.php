@@ -39,13 +39,6 @@
                             @endauth
                     </li>
 
-                    {{-- <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{ route('transaction') }}">Transaction Request</a>
-                    </li> --}}
-                    {{-- <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{ route('loan') }}">Transaction Status</a>
-                    </li> --}}
-
                 </ul>
 
             </div>

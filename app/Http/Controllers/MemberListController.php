@@ -64,7 +64,8 @@ class MemberListController extends Controller
 // dd($request);
             $request->validate([
                 'name' => 'required',
-                'email' => 'email|required|unique:users'
+                'email' => 'email|required|unique:users',
+                'account_no' => 'required|unique:members,account_no'
             ]);
 
             $User=User::create([

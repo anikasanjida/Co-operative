@@ -25,7 +25,7 @@
 
     </div>
 
-<table class="table mt-5 table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
+<table class=" table mt-5 table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
     <thead class= "table-info">
       <tr>
         <th scope="col"> member  </th>
@@ -54,6 +54,6 @@
         </tr>
 
            @endforeach
-
+    </tbody>
   </table>
 @endsection

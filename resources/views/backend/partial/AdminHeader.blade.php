@@ -23,17 +23,16 @@
                         <a class="nav-link" href="{{ route('member') }}">Members</a>
                     </li>
 
-                    {{-- <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{ route('transaction') }}">Transaction</a>
-                    </li> --}}
                     <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{ route('loan') }}">Loan module</a>
+                        <a class="nav-link" href="{{ route('loan') }}">Loan module
+                            <span class="badge bg-danger rounded-pill">{{$request_count}}</span></a>
                     </li>
                     <li class="nav-item nav-style ">
                         <a class="nav-link" href="{{route('report')}}">Report Generate</a>
                     </li>
                     <li class="nav-item nav-style ">
-                        <a class="nav-link" href="{{route('Approval')}}">Approval List</a>
+                        <a class="nav-link" href="{{route('Approval')}}">Approval List
+                            <span class="badge bg-danger rounded-pill">{{$Approve_count}}</span></a>
                     </li>
 
                   <li class="nav-item nav-style ">

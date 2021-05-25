@@ -59,6 +59,7 @@
 
 
 <main>
+    {{-- @include('backend.partial.sidebar') --}}
 
     @yield('content')
 

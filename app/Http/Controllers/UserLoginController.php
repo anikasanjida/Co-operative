@@ -26,7 +26,9 @@ class UserLoginController extends Controller
     //    dd($credentials);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('UserHome')->with('success','User Login Success.');
+
+                return redirect()->route('UserHome')->with('success','User Login Success.');
+
         }
         return back()->withErrors([
             'email' => 'Invalid Credentials.',

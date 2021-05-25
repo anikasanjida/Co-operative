@@ -1,53 +1,6 @@
 @extends('UserMain')
 @section('content')
 
-{{-- <div class="album py-5 bg-info">
-
-    <div class="container">
-        <h3 class="font-weight-bolder p-1 ">User Profile</h3>
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <img style=" height: 200px; width: 100% ;" src="{{url('/files/member/'.$member->member->image)}}" alt="">
-            <div class="card-body">
-                <h4 class="text-dark">Name: {{$member->name}}</h4>
-                <p class="text-dark">Date of Birth: {{$member->member->dob}}</p>
-                <p class="text-dark">Address: {{$member->member->address}}</p>
-                <p class="text-dark">Account_no: {{$member->member->account_no}}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                         <button type="button" class="btn btn-sm btn-outline-success">update profile</button>
-
-                         <button type="button" class="btn btn-success">Change Password</button>
-                    </div>
-                    <small class="text-muted">{{$member->member->gender}}</small>
-                </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-    </div>
-  </div>
-
-  <div class="p-3 bg-light">
-
-</div> --}}
-
 
 <div class="container">
     <div class="main-body pt-5">
@@ -62,10 +15,16 @@
                       <h4>{{$member->name}}</h4>
                       <p class="text-secondary mb-1">Co-operative society member</p>
                       <p class="text-muted font-size-sm">Female</p>
-                      <div class="btn-group">
+                      {{-- <div class="btn-group">
                         <button type="button" class="btn btn-success">Update Profile</button>
                         <br> <button type="button" class="btn btn-info">Change Password</button>
-                   </div>
+                   </div> --}}
+                   <div class="bg-light mt-3 p-3 d-flex justify-content-center">
+
+                    <a class="btn btn-success m-1" href="{{ route('profile.edit', $member->id) }}">Update Profile</a>
+
+                    <a class="btn btn-warning m-1" href="{{route('password.change',$member->id)}}">Change Password</a>
+                </div>
                     </div>
                   </div>
                 </div>

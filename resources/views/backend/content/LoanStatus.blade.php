@@ -1,7 +1,7 @@
 @extends('AdminMain')
 @section('content')
 {{-- table --}}
-<table class="table mt-5 table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
+<table class=" container table mt-5 table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
     <thead class= "table-info">
       <tr>
         <th scope="col"> member  </th>
@@ -25,9 +25,9 @@
 
         <td>
 
-            @if($data->status != 'approved')
+         @if($data->status != 'approved')
             <a href="{{ route('checkLoan',$data->id) }}" class="btn btn-warning">Check Request</a>
-            @endif
+        @endif
             <a href="{{route('transaction.view',['id'=>$data->id,'user_id'=>$data->userreq->id])}}" class="btn btn-info">View Transaction</a>
         </td>
 

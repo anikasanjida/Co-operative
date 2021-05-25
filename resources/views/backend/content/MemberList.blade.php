@@ -8,7 +8,15 @@
         {{ session()->get('success') }}
     </div>
 @endif
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     <!-- Button trigger modal -->
 <div class=" text-start">
@@ -135,6 +143,7 @@
 
 
     {{-- table --}}
+    <div class=container>
 <table class="table table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
     <thead class= "table-dark">
       <tr>
@@ -171,10 +180,10 @@
             {{-- @dd($data->Memberuser->userRqs->status); --}}
             <a class="btn btn-warning" href="{{route('member.edit',$data->id)}}">Edit</a>
             <a class="btn btn-success" href="{{route('collect',$data->user_id)}}">Collect Money</a>
-            @if(!$data->Memberuser->userRqs == null)
+        @if(!$data->Memberuser->userRqs == null)
             @if($data->Memberuser->userRqs->status == 'approved')
             <a class="btn btn-info" href="{{route('installment',$data->user_id)}}">Collect Installment</a>
-            @endif
+        @endif
             @endif
             <a class="btn btn-danger" href="{{route('member.delete',$data->id)}}">Delete</a>
         </td>
@@ -184,6 +193,7 @@
         @endforeach
 
   </table>
+</div>
 {{$members->links()}}
 </body>
 @endsection

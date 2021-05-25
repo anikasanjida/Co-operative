@@ -14,20 +14,20 @@
      <div class="container">
         <div class="row m-3">
             <div class="col-md-6">
-                <div class="card bg-danger text-white shadow" style="width: 20rm;height:10rem;">
+                <div class="card bg-info text-black shadow" style="width: 20rm;height:10rem;">
                     <div class="card-body">
                         <h5><span data-feather="alert-octagon"></span>
                             <small>Loan Amount</small></h5>
-                        <h1>1000000</h1>
+                        <h2>{{$loan_total}}</h2>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 ">
-                <div class="card text-white shadow" style="background-color:rgb(121, 109, 3); width: 20rm; height:10rem">
+                <div class="card text-black shadow" style="background-color:rgb(50, 241, 194); width: 20rm; height:10rem">
                     <div class="card-body">
                         <h5><span data-feather="package"></span>
                             <small>Paid Amount</small> </h5>
-                        <h1>500000</h1>
+                        <h1>{{$paid_total}}</h1>
                     </div>
                 </div>
             </div>
@@ -36,11 +36,11 @@
         {{-- 2nd row --}}
         <div class="row m-3">
             <div class="col-md-6 ">
-                <div class="card text-white shadow" style="background-color:rgb(11, 4, 99);width: 20rm;height:10rem;">
+                <div class="card text-black shadow" style="background-color:rgb(168, 240, 100);width: 20rm;height:10rem;">
                     <div class="card-body">
                         <h5><span data-feather="activity"></span>
                             <small>Unpaid Amount</small></h5>
-                        <h1>500000</h1>
+                        <h1>{{$unpaid_total}}</h1>
                     </div>
                 </div>
             </div>
@@ -48,8 +48,8 @@
                 <div class="card text-white shadow" style="background-color:rgb(252, 127, 10);width: 20rm; height:10rem">
                     <div class="card-body">
                         <h5><span data-feather="user-x"></span>
-                            <small>Balance </small> </h5>
-                        <h1>50000</h1>
+                            <small>Deposit Balance </small> </h5>
+                        <h1>{{$balance}}</h1>
                     </div>
                 </div>
             </div>
