@@ -24,7 +24,7 @@
                     </li>
 
                     <li class="nav-item nav-style">
-                        <a class="nav-link" href="{{ route('Deposit-withdraw') }}">Deposite/Withdraw</a>
+                        <a class="nav-link" href="{{ route('Deposit-withdraw') }}">Loan</a>
                     </li>
                     <li class="nav-item nav-style ">
                         <a class="nav-link" href="{{ route('Balance') }}">Balance</a>

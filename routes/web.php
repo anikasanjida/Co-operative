@@ -117,7 +117,7 @@ Route::group(['prefix' => 'Admin'], function () {
         Route::get('/adminreg/approval', [ApprovalController::class, 'approve'])->name('Approval');
         Route::get('/adminreg/approval/request/{id}', [ApprovalController::class, 'ApproveStatus'])->name('request.approval');
         Route::get('/adminreg/rejected/request/{id}', [ApprovalController::class, 'RejectStatus'])->name('request.rejected');
-        Route::get('/adminreg/search', [ApprovalController::class, 'search'])->name('request.search');
+        Route::get('/adminreg/apsearch', [ApprovalController::class,'apsearch'])->name('Approval.search');
 
         //edit,update member
         Route::get('/adminreg/delete/{id}', [MemberListController::class, 'deleteMember'])->name('member.delete');

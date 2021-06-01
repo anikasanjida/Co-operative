@@ -9,7 +9,7 @@
     <div class="col-md-4"></div>
 
   <div class="col-md-4">
-    <form action="{{route('member.search')}}" method="get">
+    <form action="{{route('Approval.search')}}" method="get">
         @csrf
     <input name="search" type="text" placeholder="Search" class="form-control">
     <button type="submit" class="btn btn-primary">Search</button>
@@ -17,15 +17,15 @@
 </div>
 
 <div>
-@if(isset($search))
+@if(isset($apsearch))
         <p>
-        <span class="alert alert-success"> you are searching for '{{$search}}' , found ({{count($members)}})</span>
+        <span class="alert alert-success"> you are searching for '{{$apsearch}}' , found ({{count($user_request)}})</span>
         </p>
     @endif
 
     </div>
 
-<table class=" table mt-5 table-striped table-bordered border-primary bg-light table-cell-padding-.2rem">
+<table style="width: 97%" class="m-4 table mt-5 table-striped table-bordered border-primary bg-light table-cell-padding-.1rem">
     <thead class= "table-info">
       <tr>
         <th scope="col"> member  </th>
@@ -56,4 +56,5 @@
            @endforeach
     </tbody>
   </table>
+  {{$user_request->links()}}
 @endsection

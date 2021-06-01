@@ -9,7 +9,7 @@
     </div> --}}
 
        {{-- Table title --}}
-<body style="background-image:url(/img/nn.jpg); background-repeat:no-repeat;background-size:100 100%;background-attachment:fixed">
+{{-- <body style="background-image:url(/img/nn.jpg); background-repeat:no-repeat;background-size:100 100%;background-attachment:fixed"> --}}
 <div class="title text-center mb-3 bg-light text-dark">
     <h3 class="font-weight-bolder p-1 m-5">Notice List</h3>
 

@@ -14,6 +14,7 @@
     </thead>
     <tbody>
         @foreach ($user_request as $data )
+        {{-- @dd($data->userreq); --}}
 
         <tr>
             <th scope="row">{{$data->userreq->name}}</th>
@@ -25,10 +26,15 @@
 
         <td>
 
-         @if($data->status != 'approved')
-            <a href="{{ route('checkLoan',$data->id) }}" class="btn btn-warning">Check Request</a>
+         @if($data->status == 'approved')
+         <a href="{{route('transaction.view',['id'=>$data->id,'user_id'=>$data->userreq->id])}}" class="btn btn-info">View Transaction</a>
+        @elseif ($data->status == 'Rejected')
+        <a href="" class="btn btn-warning">No Transaction</a>
+        @else
+        <a href="{{route('transaction.view',['id'=>$data->id,'user_id'=>$data->userreq->id])}}" class="btn btn-info">View Transaction</a>
+        <a href="{{ route('checkLoan',$data->id) }}" class="btn btn-warning">Check Request</a>
         @endif
-            <a href="{{route('transaction.view',['id'=>$data->id,'user_id'=>$data->userreq->id])}}" class="btn btn-info">View Transaction</a>
+
         </td>
 
         </tr>
