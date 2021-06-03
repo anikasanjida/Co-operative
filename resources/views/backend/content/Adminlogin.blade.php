@@ -52,6 +52,12 @@
                     <div class="flex-item">
                         <button type="submit" class="btn btn-warning">Login</button>
                     </div>
+
+                    <div>
+                    <p>
+                        <a href="{{route('forget-password')}}">Forget Password?</a>
+                    </p>
+                </div>
                 </form>
             </div>
         </div>

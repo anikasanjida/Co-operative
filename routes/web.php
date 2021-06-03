@@ -103,6 +103,16 @@ Route::post('/admin/adminlogin', [AdminLoginController::class, 'add'])->name('ad
 Route::get('/admin/adminlogout', [AdminLoginController::class, 'addlogout'])->name('adminlogout');
 
 
+//forget password links here
+Route::get('/forget-password',[AdminLoginController::class,'forgetPassword'])->name('forget-password');
+Route::post('/forget-password-link',[AdminLoginController::class,'forgetPasswordLink'])->name('forget-password.link');
+Route::get('/forget-password-link-click/{token}/{email}',[AdminLoginController::class,'passwordReset'])->name('password.reset');
+Route::post('/reset-password',[AdminLoginController::class,'resetPassword'])->name('password.reset.post');
+
+
+
+
+
 //admin homepage
 
 Route::group(['prefix' => 'Admin'], function () {
